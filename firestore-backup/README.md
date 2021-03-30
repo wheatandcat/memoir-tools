@@ -4,3 +4,27 @@
 
 以下のドキュメントを元に作成
 https://firebase.google.com/docs/firestore/solutions/schedule-export?hl=ja
+
+## セットアップ
+
+https://firebase.google.com/docs/firestore/solutions/schedule-export?hl=ja
+
+```
+$ gcloud projects add-iam-policy-binding PROJECT_ID \
+    --member serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
+    --role roles/datastore.importExportAdmin
+```
+
+```
+$ gsutil iam ch serviceAccount:PROJECT_ID@appspot.gserviceaccount.com:admin \
+    gs://BUCKET_NAME
+```
+
+
+## コマンド
+
+### デプロイ
+
+```
+$ firebase deploy --only functions
+```

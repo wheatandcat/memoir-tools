@@ -11,9 +11,11 @@ process.env.TZ = timezone;
 exports.scheduledFirestoreExport = functions
   .region("asia-northeast1")
   .pubsub.schedule("every day 04:00")
+  .timeZone(timezone)
   .onRun(() => {
     const projectId =
       process.env.GCP_PROJECT || process.env.GCLOUD_PROJECT || "";
+
     const databaseName = client.databasePath(projectId, "(default)");
 
     return client
