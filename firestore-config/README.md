@@ -2,9 +2,26 @@
 
 [memoir-backend](https://github.com/wheatandcat/memoir-backend)のFirestoreのconfigを記載
 
-## コマンド
+# コマンド
 
-### indexesをデプロイ
+## プロジェクト切り替え
+
+### レビュー環境
+
+```
+$ firebase use review
+```
+
+### 本番環境
+
+```
+$ firebase use production
+```
+
+
+## indexes
+
+### デプロイ
 
 ```
 $ firebase deploy --only firestore:indexes
@@ -15,3 +32,13 @@ $ firebase deploy --only firestore:indexes
 ```
 $ firebase firestore:indexes > firestore.indexes.json
 ```
+
+
+## rules
+
+### デプロイ
+
+```
+$ firebase deploy --only firestore:rules
+```
+
