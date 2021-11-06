@@ -1,4 +1,4 @@
-# Firestoreの設定
+# Firebaseの設定
 
 [memoir-backend](https://github.com/wheatandcat/memoir-backend)のFirestoreのconfigを記載
 
@@ -19,26 +19,41 @@ $ firebase use production
 ```
 
 
-## indexes
+## firestore
 
-### デプロイ
+### indexes
+
+#### デプロイ
 
 ```
 $ firebase deploy --only firestore:indexes
 ```
 
-### 最新のindexesで上書き
+#### 最新のindexesで上書き
 
 ```
 $ firebase firestore:indexes > firestore.indexes.json
 ```
 
 
-## rules
+### rules
 
-### デプロイ
+#### デプロイ
 
 ```
 $ firebase deploy --only firestore:rules
 ```
+
+## storage
+
+
+### rules
+
+#### デプロイ
+
+```
+$ firebase deploy --only storage:rules
+```
+
+
 
