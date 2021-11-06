@@ -68,3 +68,4 @@ node_modules/
 .firebaserc
 .DS_Store
 serviceAccount.json
+.env.yaml

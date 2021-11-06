@@ -1,5 +1,7 @@
 const sharp = require("sharp");
 const axios = require("axios");
+const imageHost = process.env.IMAGE_HOST;
+const imageParam = process.env.IMAGE_PARAM;
 
 const getImageData = async (url) => {
   const response = await axios.get(url, {
@@ -22,7 +24,7 @@ const margeImage = async (urlList) => {
   let images = [];
 
   for (let i = 0; i < urlList.length; i++) {
-    const image1 = await getImageData(urlList[i]);
+    const image1 = await getImageData(`${imageHost}${urlList[i]}${imageParam}`);
     images.push(image1);
   }
 
@@ -59,10 +61,10 @@ const margeImage = async (urlList) => {
 };
 
 exports.margeImage = async (req, res) => {
-  const buf = await margeImage([
-    "https://placehold.jp/150x250.png",
-    "https://placehold.jp/150x150.png",
-  ]);
+  const param = req.query.images;
+  const urlList = param.split(",");
+
+  const buf = await margeImage(urlList);
 
   res.status(200).send(buf);
 };

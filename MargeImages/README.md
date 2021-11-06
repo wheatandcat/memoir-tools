@@ -3,5 +3,5 @@
 ## デプロイ
 
 ```zsh
-$ gcloud functions deploy margeImage --runtime nodejs16 --trigger-http --allow-unauthenticated --region asia-northeast1
+$ gcloud functions deploy margeImage --env-vars-file .env.yaml --runtime nodejs16 --trigger-http --allow-unauthenticated --region asia-northeast1
 ```
