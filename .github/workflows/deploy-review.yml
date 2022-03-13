@@ -5,8 +5,8 @@ on:
     branches:
       - main
       - "13"
-    #paths:
-    #  - "MargeImages/**"
+    paths:
+      - "MargeImages/**"
 env:
   ENV_YAML: ${{ secrets.REVIEW_ENV_YAML }}
 jobs:
