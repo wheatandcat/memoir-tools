@@ -29,5 +29,3 @@ jobs:
       run: |
         gcloud functions deploy margeImage --env-vars-file .env.yaml --runtime nodejs16 --trigger-http --allow-unauthenticated --region asia-northeast1
       working-directory: ./MargeImages
-
-        

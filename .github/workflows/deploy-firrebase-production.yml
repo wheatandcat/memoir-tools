@@ -1,0 +1,24 @@
+name: Firebase Deploy Production
+
+on:
+  push:
+    tags:
+      - 'v*'
+    paths:
+      - "firebase-config/**"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Deploy Firebase rules and index
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy
+      env:
+        PROJECT_ID: ${{ secrets.PRODUCTION_FIREBASE_PROJECT_ID }}
+        FIREBASE_TOKEN: ${{ secrets.PRODUCTION_FIREBASE_TOKEN }}
+        PROJECT_PATH: ./firebase-config

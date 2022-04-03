@@ -21,3 +21,4 @@ firebase-debug.*.log*
 pids
 *.pid
 .DS_Store
+.firebaserc
