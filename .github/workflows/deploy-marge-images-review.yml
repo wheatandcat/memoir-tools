@@ -1,11 +1,13 @@
-name: Marge Images Deploy Production
+name: Marge Images Deploy Review
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+    paths:
+      - "MargeImages/**"
 env:
-  ENV_YAML: ${{ secrets.PRODUCTION_ENV_YAML }}
+  ENV_YAML: ${{ secrets.REVIEW_ENV_YAML }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,7 +23,7 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
-        credentials_json: '${{ secrets.PRODUCTION_SERVICE_ACCOUNT_JSON }}'
+        credentials_json: '${{ secrets.REVIEW_SERVICE_ACCOUNT_JSON }}'
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v0'
 
@@ -29,5 +31,3 @@ jobs:
       run: |
         gcloud functions deploy margeImage --env-vars-file .env.yaml --runtime nodejs16 --trigger-http --allow-unauthenticated --region asia-northeast1
       working-directory: ./MargeImages
-
-        
