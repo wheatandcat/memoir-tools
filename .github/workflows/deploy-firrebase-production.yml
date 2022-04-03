@@ -2,10 +2,10 @@ name: Firebase Deploy Production
 
 on:
   push:
-    branches:
-      - "11"
     tags:
       - 'v*'
+    paths:
+      - "firebase-config/**"
 jobs:
   deploy:
     runs-on: ubuntu-latest

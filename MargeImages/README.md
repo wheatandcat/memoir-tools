@@ -6,16 +6,6 @@
 $ gcloud functions deploy margeImage --env-vars-file .env.yaml --runtime nodejs16 --trigger-http --allow-unauthenticated --region asia-northeast1
 ```
 
-## 本番環境
-
-```zsh
-$ git checkout main
-$ git pull --ff-only origin main
-$ git tag -a v1.0.0 -m 'リリース内容'
-$ git push origin v1.0.0
-```
-
-
 ## CI環境
 
 
