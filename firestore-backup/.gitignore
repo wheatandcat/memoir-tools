@@ -9,6 +9,8 @@ firebase-debug.*.log*
 
 # Firebase cache
 .firebase/
+.runtimeconfig.json
+.envrc
 
 # Firebase config
 

@@ -3,7 +3,9 @@ import * as firestore from "@google-cloud/firestore";
 const client = new firestore.v1.FirestoreAdminClient();
 
 // Replace BUCKET_NAME
-const bucket = "gs://memoir-firestore-backup";
+const BUCKET_NAME = "デプロイ前に設定";
+
+const bucket = `gs://${BUCKET_NAME}`;
 
 const timezone = "Asia/Tokyo";
 process.env.TZ = timezone;
