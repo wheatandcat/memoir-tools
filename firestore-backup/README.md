@@ -23,7 +23,21 @@ $ gsutil iam ch serviceAccount:PROJECT_ID@appspot.gserviceaccount.com:admin \
 
 ## コマンド
 
-### デプロイ
+## プロジェクト切り替え
+
+### レビュー環境
+
+```
+$ firebase use review
+```
+
+### 本番環境
+
+```
+$ firebase use production
+```
+
+## デプロイ
 
 ```
 $ firebase deploy --only functions
